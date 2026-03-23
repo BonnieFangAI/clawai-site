@@ -1,0 +1,50 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 140 140" width="140" height="140">
+  <defs>
+    <linearGradient id="orbGrad1" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#C084FC"/>
+      <stop offset="100%" style="stop-color:#7C3AED"/>
+    </linearGradient>
+    <linearGradient id="orbGrad2" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#818CF8"/>
+      <stop offset="100%" style="stop-color:#6366F1"/>
+    </linearGradient>
+    <linearGradient id="orbGrad3" x1="100%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#F0ABFC"/>
+      <stop offset="100%" style="stop-color:#A78BFA"/>
+    </linearGradient>
+    <filter id="orbitGlow">
+      <feGaussianBlur stdDeviation="3" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+  
+  <g transform="translate(5, 0)">
+    <!-- Outer orbit ring -->
+    <ellipse cx="65" cy="70" rx="58" ry="22" fill="none" stroke="url(#orbGrad2)" stroke-width="1.8" opacity="0.35" transform="rotate(-25, 65, 70)"/>
+    
+    <!-- Inner orbit ring -->
+    <ellipse cx="65" cy="70" rx="45" ry="18" fill="none" stroke="url(#orbGrad1)" stroke-width="1.8" opacity="0.3" transform="rotate(25, 65, 70)"/>
+    
+    <!-- Three claw arms -->
+    <path d="M 65 70 L 40 18" stroke="url(#orbGrad3)" stroke-width="6" stroke-linecap="round" opacity="0.8"/>
+    <path d="M 65 70 L 18 90" stroke="url(#orbGrad1)" stroke-width="6" stroke-linecap="round" opacity="0.7"/>
+    <path d="M 65 70 L 105 25" stroke="url(#orbGrad1)" stroke-width="6" stroke-linecap="round" opacity="0.8"/>
+    
+    <!-- Claw tips -->
+    <circle cx="40" cy="18" r="6" fill="url(#orbGrad3)" opacity="0.9"/>
+    <circle cx="18" cy="90" r="6" fill="url(#orbGrad1)" opacity="0.8"/>
+    <circle cx="105" cy="25" r="6" fill="url(#orbGrad1)" opacity="0.9"/>
+    
+    <!-- Center core -->
+    <circle cx="65" cy="70" r="14" fill="url(#orbGrad1)" opacity="0.15" filter="url(#orbitGlow)"/>
+    <circle cx="65" cy="70" r="9" fill="url(#orbGrad1)" opacity="0.6"/>
+    <circle cx="65" cy="70" r="5" fill="#F0EAFF"/>
+    
+    <!-- Accent particles -->
+    <circle cx="95" cy="82" r="2.5" fill="url(#orbGrad3)" opacity="0.5"/>
+    <circle cx="30" cy="55" r="2" fill="url(#orbGrad1)" opacity="0.4"/>
+  </g>
+</svg>

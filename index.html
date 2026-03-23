@@ -250,7 +250,10 @@ footer a:hover { color: var(--text); }
 
 <nav>
   <div class="container">
-    <div class="logo"><span>ClawAI</span></div>
+    <div class="logo" style="display:flex;align-items:center;gap:10px;">
+      <img src="logo-v6-icon.svg" alt="ClawAI" style="height:32px;width:32px;">
+      <span>ClawAI</span>
+    </div>
     <div class="nav-right">
       <button class="lang-toggle" onclick="toggleLang()">中文 / EN</button>
       <a href="#pricing" class="nav-cta">
@@ -269,12 +272,12 @@ footer a:hover { color: var(--text); }
       <span class="zh">正在接受预约</span>
     </div>
     <h1>
-      <span class="en">Your Own <span class="gradient">AI Assistant</span><br>Always On. Always Yours.</span>
-      <span class="zh">属于你的 <span class="gradient">AI 私人助理</span><br>全天候待命，只为你服务</span>
+      <span class="en">Your <span class="gradient">AI Assistant</span><br>Infinite Potential. Always Yours.</span>
+      <span class="zh">你的 <span class="gradient">AI 全能助理</span><br>无限可能，为你而生</span>
     </h1>
     <p class="hero-sub">
-      <span class="en">A personal AI that lives on your phone — Telegram, WhatsApp, or Discord. It reads your emails, manages your schedule, remembers your preferences, and works while you sleep.</span>
-      <span class="zh">一个住在你手机里的 AI 助理 — 通过 Telegram、WhatsApp 或 Discord 随时对话。它能读邮件、管日程、记住你的偏好，你睡觉时它还在工作。</span>
+      <span class="en">A 24/7 AI that lives in your chat — managing health, running business operations, tracking markets, and handling everything in between. For individuals who want a smarter life and businesses that need a tireless team member.</span>
+      <span class="zh">全天候 AI 助理，就在你的聊天里——管理健康、运营业务、追踪市场，全面接管琐碎事务。无论你是追求智慧生活的个人，还是需要不知疲倦的团队成员的企业，它都是你的最佳搭档。</span>
     </p>
     <div class="hero-buttons">
       <a href="#pricing" class="btn-primary">
@@ -296,8 +299,8 @@ footer a:hover { color: var(--text); }
       <span class="zh">你将获得</span>
     </div>
     <div class="section-title">
-      <span class="en">Not a chatbot. A real assistant.</span>
-      <span class="zh">不是聊天机器人，是真正的助理。</span>
+      <span class="en">Not a chatbot. Your smartest team member.</span>
+      <span class="zh">不是聊天机器人，是你最聪明的队友。</span>
     </div>
     <div class="features-grid">
       <div class="feature-card">
@@ -333,8 +336,60 @@ footer a:hover { color: var(--text); }
       <div class="feature-card">
         <div class="feature-icon">🔌</div>
         <h3><span class="en">Extensible Skills</span><span class="zh">技能可扩展</span></h3>
-        <p><span class="en">Manage Shopify stores, check weather, browse the web, control smart home — and growing.</span>
-        <span class="zh">管理 Shopify 店铺、查天气、浏览网页、控制智能家居——技能持续增长中。</span></p>
+        <p><span class="en">Hundreds of skills and integrations — from e-commerce to smart home, and growing every week.</span>
+        <span class="zh">数百种技能和集成——从电商到智能家居，每周都在增长。</span></p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Use Cases -->
+<section class="features" style="padding-top:20px;">
+  <div class="container">
+    <div class="section-label">
+      <span class="en">Use Cases</span>
+      <span class="zh">应用场景</span>
+    </div>
+    <div class="section-title">
+      <span class="en">One assistant. From personal life to business growth.</span>
+      <span class="zh">一个助理，从个人生活到企业增长全覆盖。</span>
+    </div>
+    <div class="features-grid">
+      <div class="feature-card">
+        <div class="feature-icon">🏥</div>
+        <h3><span class="en">Health & Wellness</span><span class="zh">健康管理</span></h3>
+        <p><span class="en">Connect Apple Health or wearables. Track sleep, heart rate, steps, and body metrics. Get daily health briefings and trend alerts — your AI knows when something's off.</span>
+        <span class="zh">连接 Apple Health 或智能手环，追踪睡眠、心率、步数、体脂等指标。每日健康简报，异常趋势自动预警——你的 AI 比你更早发现身体变化。</span></p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">🏢</div>
+        <h3><span class="en">Business Operations</span><span class="zh">企业运营</span></h3>
+        <p><span class="en">Manage Shopify stores, monitor inventory, track orders, draft marketing copy, and handle customer data. Your AI becomes your tireless operations manager.</span>
+        <span class="zh">管理 Shopify 店铺、监控库存、追踪订单、撰写营销文案、处理客户数据。你的 AI 就是不知疲倦的运营总监。</span></p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">📈</div>
+        <h3><span class="en">Investment & Market Watch</span><span class="zh">投资与市场追踪</span></h3>
+        <p><span class="en">Monitor crypto trends, stock movements, and breaking financial news around the clock. Get alerts when something moves — not hours later, but in real time.</span>
+        <span class="zh">全天候监控加密货币动态、股市走势和财经快讯。行情异动第一时间提醒，不错过任何机会。</span></p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">📧</div>
+        <h3><span class="en">Executive Assistant</span><span class="zh">高管秘书</span></h3>
+        <p><span class="en">Email triage, calendar management, meeting prep, travel planning, and morning briefings. Like having a chief of staff in your pocket.</span>
+        <span class="zh">邮件分级处理、日程管理、会议准备、行程规划、每日早报。随身携带的幕僚长。</span></p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">🏠</div>
+        <h3><span class="en">Smart Home & IoT</span><span class="zh">智能家居与物联网</span></h3>
+        <p><span class="en">Control lights, cameras, thermostats, and security systems through natural conversation. "Is the front door locked?" — just ask.</span>
+        <span class="zh">通过自然对话控制灯光、摄像头、温控和安防系统。"前门锁了吗？"——问一句就行。</span></p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">🎓</div>
+        <h3><span class="en">Research & Learning</span><span class="zh">研究与学习</span></h3>
+        <p><span class="en">Deep web research, document summarization, competitive analysis, and trend monitoring. Your AI reads the internet so you don't have to.</span>
+        <span class="zh">深度网络调研、文档摘要、竞品分析、趋势监控。让 AI 替你读遍全网，只给你精华。</span></p>
       </div>
     </div>
   </div>
@@ -470,10 +525,33 @@ footer a:hover { color: var(--text); }
       </div>
 
     </div>
-    <p style="text-align:center; color:var(--text-secondary); font-size:0.85rem; margin-top:24px;">
-      <span class="en">* AI model costs (e.g. Claude, GPT) are billed separately based on your usage.</span>
-      <span class="zh">* AI 模型费用（如 Claude、GPT）根据实际用量另计。</span>
-    </p>
+    <div style="max-width:680px; margin:32px auto 0; background:var(--surface); border:1px solid var(--border); border-radius:16px; padding:28px 32px;">
+      <h3 style="font-size:1rem; margin-bottom:12px; display:flex; align-items:center; gap:8px;">
+        <span style="font-size:1.2rem;">💡</span>
+        <span class="en">What's not included (you pay directly)</span>
+        <span class="zh">以下费用由您自行承担</span>
+      </h3>
+      <ul style="list-style:none; padding:0; margin:0;">
+        <li style="padding:8px 0; color:var(--text-secondary); font-size:0.9rem; display:flex; align-items:flex-start; gap:10px;">
+          <span style="color:var(--accent); flex-shrink:0;">→</span>
+          <span>
+            <span class="en"><strong style="color:var(--text);">Server / Hardware</strong> — A small VPS (~€5-10/mo) or a Raspberry Pi (~€80 one-time). We help you choose and set it up.</span>
+            <span class="zh"><strong style="color:var(--text);">服务器 / 硬件</strong> — 一台小型 VPS（约€5-10/月）或树莓派（约€80一次性）。我们帮你选型和配置。</span>
+          </span>
+        </li>
+        <li style="padding:8px 0; color:var(--text-secondary); font-size:0.9rem; display:flex; align-items:flex-start; gap:10px;">
+          <span style="color:var(--accent); flex-shrink:0;">→</span>
+          <span>
+            <span class="en"><strong style="color:var(--text);">AI Model Tokens</strong> — Billed by providers like Anthropic (Claude) or OpenAI (GPT) based on your actual usage. Typical cost: €10-50/month for moderate use.</span>
+            <span class="zh"><strong style="color:var(--text);">AI 模型 Token 费</strong> — 由 Anthropic（Claude）或 OpenAI（GPT）等供应商按实际用量收取。一般用量约€10-50/月。</span>
+          </span>
+        </li>
+      </ul>
+      <p style="color:var(--text-secondary); font-size:0.8rem; margin-top:12px; padding-top:12px; border-top:1px solid var(--border);">
+        <span class="en">🔑 You hold all the keys — your server, your API keys, your data. We deploy and maintain. You own everything.</span>
+        <span class="zh">🔑 所有钥匙都在你手上——你的服务器、你的 API 密钥、你的数据。我们负责部署和维护，一切属于你。</span>
+      </p>
+    </div>
   </div>
 </section>
 
