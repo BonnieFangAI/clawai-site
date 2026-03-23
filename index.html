@@ -1,0 +1,574 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ClawAI — Your Personal AI Assistant, Deployed</title>
+<meta name="description" content="Professional AI assistant deployment service. Get your own 24/7 AI companion on Telegram, WhatsApp, or Discord.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Noto+Sans+SC:wght@300;400;500;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #0a0a0a;
+  --surface: #141414;
+  --surface-2: #1e1e1e;
+  --border: #2a2a2a;
+  --text: #f0f0f0;
+  --text-secondary: #888;
+  --accent: #7c6aef;
+  --accent-glow: rgba(124,106,239,0.15);
+  --accent-hover: #9584ff;
+  --green: #34d399;
+  --gradient: linear-gradient(135deg, #7c6aef 0%, #a78bfa 50%, #c084fc 100%);
+}
+
+* { margin:0; padding:0; box-sizing:border-box; }
+
+body {
+  font-family: 'Inter', 'Noto Sans SC', sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+.container { max-width: 1100px; margin: 0 auto; padding: 0 24px; }
+
+/* Nav */
+nav {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+  background: rgba(10,10,10,0.85);
+  backdrop-filter: blur(20px);
+  border-bottom: 1px solid var(--border);
+  padding: 16px 0;
+}
+nav .container {
+  display: flex; justify-content: space-between; align-items: center;
+}
+.logo { font-weight: 700; font-size: 1.2rem; letter-spacing: -0.5px; }
+.logo span { background: var(--gradient); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+.nav-right { display: flex; align-items: center; gap: 20px; }
+.lang-toggle {
+  background: var(--surface-2); border: 1px solid var(--border); border-radius: 8px;
+  padding: 6px 12px; color: var(--text-secondary); cursor: pointer; font-size: 0.85rem;
+  transition: all 0.2s;
+}
+.lang-toggle:hover { border-color: var(--accent); color: var(--text); }
+.nav-cta {
+  background: var(--accent); color: #fff; padding: 8px 20px; border-radius: 8px;
+  text-decoration: none; font-weight: 500; font-size: 0.9rem; transition: all 0.2s;
+}
+.nav-cta:hover { background: var(--accent-hover); transform: translateY(-1px); }
+
+/* Hero */
+.hero {
+  padding: 160px 0 100px;
+  text-align: center;
+  position: relative;
+}
+.hero::before {
+  content: ''; position: absolute; top: 80px; left: 50%; transform: translateX(-50%);
+  width: 600px; height: 600px; background: radial-gradient(circle, var(--accent-glow) 0%, transparent 70%);
+  pointer-events: none;
+}
+.hero-badge {
+  display: inline-block; background: var(--surface-2); border: 1px solid var(--border);
+  border-radius: 100px; padding: 6px 16px; font-size: 0.8rem; color: var(--text-secondary);
+  margin-bottom: 24px;
+}
+.hero-badge .dot { display: inline-block; width: 6px; height: 6px; background: var(--green); border-radius: 50%; margin-right: 8px; }
+h1 {
+  font-size: clamp(2.5rem, 6vw, 4rem); font-weight: 700;
+  letter-spacing: -1.5px; line-height: 1.1; margin-bottom: 20px;
+}
+h1 .gradient { background: var(--gradient); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+.hero-sub {
+  font-size: 1.15rem; color: var(--text-secondary); max-width: 560px;
+  margin: 0 auto 40px; line-height: 1.7;
+}
+.hero-buttons { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; }
+.btn-primary {
+  background: var(--gradient); color: #fff; padding: 14px 32px; border-radius: 12px;
+  text-decoration: none; font-weight: 600; font-size: 1rem; transition: all 0.3s;
+  box-shadow: 0 4px 24px rgba(124,106,239,0.3);
+}
+.btn-primary:hover { transform: translateY(-2px); box-shadow: 0 8px 32px rgba(124,106,239,0.4); }
+.btn-secondary {
+  background: var(--surface-2); color: var(--text); padding: 14px 32px; border-radius: 12px;
+  text-decoration: none; font-weight: 500; font-size: 1rem; border: 1px solid var(--border);
+  transition: all 0.2s;
+}
+.btn-secondary:hover { border-color: var(--accent); }
+
+/* Features */
+.features { padding: 80px 0; }
+.section-label {
+  font-size: 0.8rem; text-transform: uppercase; letter-spacing: 2px;
+  color: var(--accent); font-weight: 600; margin-bottom: 12px;
+}
+.section-title {
+  font-size: 2rem; font-weight: 700; letter-spacing: -0.5px; margin-bottom: 48px;
+}
+.features-grid {
+  display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px;
+}
+.feature-card {
+  background: var(--surface); border: 1px solid var(--border); border-radius: 16px;
+  padding: 32px; transition: all 0.3s;
+}
+.feature-card:hover { border-color: #3a3a3a; transform: translateY(-2px); }
+.feature-icon {
+  font-size: 2rem; margin-bottom: 16px;
+}
+.feature-card h3 { font-size: 1.1rem; font-weight: 600; margin-bottom: 8px; }
+.feature-card p { color: var(--text-secondary); font-size: 0.95rem; }
+
+/* Pricing */
+.pricing { padding: 80px 0; }
+.pricing-grid {
+  display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 24px;
+  margin-top: 48px;
+}
+.price-card {
+  background: var(--surface); border: 1px solid var(--border); border-radius: 20px;
+  padding: 40px 32px; position: relative; transition: all 0.3s;
+}
+.price-card.featured {
+  border-color: var(--accent);
+  background: linear-gradient(180deg, rgba(124,106,239,0.08) 0%, var(--surface) 50%);
+}
+.price-card.featured::before {
+  content: ''; position: absolute; top: -1px; left: 30%; right: 30%; height: 2px;
+  background: var(--gradient); border-radius: 0 0 4px 4px;
+}
+.price-tier {
+  font-size: 0.8rem; text-transform: uppercase; letter-spacing: 2px;
+  color: var(--accent); font-weight: 600; margin-bottom: 8px;
+}
+.price-card h3 { font-size: 1.3rem; font-weight: 700; margin-bottom: 4px; }
+.price-desc { color: var(--text-secondary); font-size: 0.9rem; margin-bottom: 24px; }
+.price-amount {
+  font-size: 2.5rem; font-weight: 700; margin-bottom: 4px;
+}
+.price-amount .eur { font-size: 1.5rem; vertical-align: top; }
+.price-period { color: var(--text-secondary); font-size: 0.85rem; margin-bottom: 28px; }
+.price-features { list-style: none; margin-bottom: 32px; }
+.price-features li {
+  padding: 8px 0; color: var(--text-secondary); font-size: 0.9rem;
+  display: flex; align-items: flex-start; gap: 10px;
+}
+.price-features li::before {
+  content: '✓'; color: var(--green); font-weight: 700; flex-shrink: 0;
+}
+.btn-plan {
+  display: block; width: 100%; text-align: center; padding: 14px;
+  border-radius: 12px; text-decoration: none; font-weight: 600; font-size: 0.95rem;
+  transition: all 0.2s;
+}
+.btn-plan-primary {
+  background: var(--gradient); color: #fff;
+  box-shadow: 0 4px 24px rgba(124,106,239,0.3);
+}
+.btn-plan-secondary {
+  background: var(--surface-2); color: var(--text); border: 1px solid var(--border);
+}
+.btn-plan:hover { transform: translateY(-2px); }
+
+/* How it works */
+.how { padding: 80px 0; }
+.steps {
+  display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 32px; margin-top: 48px;
+}
+.step { text-align: center; }
+.step-num {
+  width: 48px; height: 48px; border-radius: 50%; background: var(--surface-2);
+  border: 1px solid var(--border); display: flex; align-items: center; justify-content: center;
+  margin: 0 auto 16px; font-weight: 700; color: var(--accent);
+}
+.step h3 { font-size: 1rem; margin-bottom: 6px; }
+.step p { color: var(--text-secondary); font-size: 0.9rem; }
+
+/* Demo */
+.demo {
+  padding: 80px 0;
+}
+.demo-box {
+  background: var(--surface); border: 1px solid var(--border); border-radius: 20px;
+  padding: 48px; text-align: center;
+  background-image: radial-gradient(circle at 50% 0%, var(--accent-glow), transparent 60%);
+}
+.demo-box h2 { font-size: 1.8rem; font-weight: 700; margin-bottom: 12px; }
+.demo-box p { color: var(--text-secondary); margin-bottom: 32px; max-width: 480px; margin-left: auto; margin-right: auto; }
+
+/* Chat Preview */
+.chat-preview {
+  max-width: 420px; margin: 0 auto 32px; text-align: left;
+  background: var(--bg); border-radius: 16px; padding: 24px;
+  border: 1px solid var(--border);
+}
+.chat-msg {
+  margin-bottom: 16px; display: flex; gap: 10px;
+}
+.chat-msg.user { justify-content: flex-end; }
+.chat-bubble {
+  padding: 10px 16px; border-radius: 16px; font-size: 0.9rem; max-width: 80%;
+  line-height: 1.5;
+}
+.chat-msg.bot .chat-bubble {
+  background: var(--surface-2); border: 1px solid var(--border);
+  border-bottom-left-radius: 4px; color: var(--text);
+}
+.chat-msg.user .chat-bubble {
+  background: var(--accent); color: #fff;
+  border-bottom-right-radius: 4px;
+}
+.chat-dot { font-size: 0.75rem; margin-top: 2px; }
+
+/* Footer */
+footer {
+  border-top: 1px solid var(--border); padding: 40px 0;
+  text-align: center; color: var(--text-secondary); font-size: 0.85rem;
+}
+footer a { color: var(--text-secondary); text-decoration: none; }
+footer a:hover { color: var(--text); }
+
+/* Responsive */
+@media (max-width: 640px) {
+  .hero { padding: 130px 0 60px; }
+  .hero-buttons { flex-direction: column; align-items: center; }
+  .pricing-grid { grid-template-columns: 1fr; }
+  .price-card { padding: 32px 24px; }
+}
+
+/* Lang system */
+[lang="en"] .zh { display: none; }
+[lang="zh"] .en { display: none; }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="container">
+    <div class="logo"><span>ClawAI</span></div>
+    <div class="nav-right">
+      <button class="lang-toggle" onclick="toggleLang()">中文 / EN</button>
+      <a href="#pricing" class="nav-cta">
+        <span class="en">Get Started</span>
+        <span class="zh">立即开始</span>
+      </a>
+    </div>
+  </div>
+</nav>
+
+<section class="hero">
+  <div class="container">
+    <div class="hero-badge">
+      <span class="dot"></span>
+      <span class="en">Now accepting clients</span>
+      <span class="zh">正在接受预约</span>
+    </div>
+    <h1>
+      <span class="en">Your Own <span class="gradient">AI Assistant</span><br>Always On. Always Yours.</span>
+      <span class="zh">属于你的 <span class="gradient">AI 私人助理</span><br>全天候待命，只为你服务</span>
+    </h1>
+    <p class="hero-sub">
+      <span class="en">A personal AI that lives on your phone — Telegram, WhatsApp, or Discord. It reads your emails, manages your schedule, remembers your preferences, and works while you sleep.</span>
+      <span class="zh">一个住在你手机里的 AI 助理 — 通过 Telegram、WhatsApp 或 Discord 随时对话。它能读邮件、管日程、记住你的偏好，你睡觉时它还在工作。</span>
+    </p>
+    <div class="hero-buttons">
+      <a href="#pricing" class="btn-primary">
+        <span class="en">View Plans</span>
+        <span class="zh">查看套餐</span>
+      </a>
+      <a href="#demo" class="btn-secondary">
+        <span class="en">See it in action ↓</span>
+        <span class="zh">看看效果 ↓</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<section class="features">
+  <div class="container">
+    <div class="section-label">
+      <span class="en">What You Get</span>
+      <span class="zh">你将获得</span>
+    </div>
+    <div class="section-title">
+      <span class="en">Not a chatbot. A real assistant.</span>
+      <span class="zh">不是聊天机器人，是真正的助理。</span>
+    </div>
+    <div class="features-grid">
+      <div class="feature-card">
+        <div class="feature-icon">💬</div>
+        <h3><span class="en">Lives in Your Chat</span><span class="zh">就在你的聊天里</span></h3>
+        <p><span class="en">Talk to it in Telegram, WhatsApp, or Discord — whichever you already use. No new apps to learn.</span>
+        <span class="zh">通过 Telegram、WhatsApp 或 Discord 直接对话，不用学新软件，打开手机就能用。</span></p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">🧠</div>
+        <h3><span class="en">It Remembers You</span><span class="zh">它记得你</span></h3>
+        <p><span class="en">Your preferences, your habits, your projects. Unlike ChatGPT, it builds real memory over time.</span>
+        <span class="zh">你的偏好、习惯、项目进展……不像 ChatGPT 每次从零开始，它会持续记忆和成长。</span></p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">⚡</div>
+        <h3><span class="en">Works While You Sleep</span><span class="zh">你休息，它工作</span></h3>
+        <p><span class="en">Monitors emails, tracks news, sends you morning briefings. It's proactive, not just reactive.</span>
+        <span class="zh">监控邮件、追踪新闻、发送早报。它会主动做事，不只是等你提问。</span></p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">🔒</div>
+        <h3><span class="en">Private & Secure</span><span class="zh">私密安全</span></h3>
+        <p><span class="en">Runs on your own server. Your data stays yours — not shared with any third party.</span>
+        <span class="zh">运行在你自己的服务器上，数据完全属于你，不会分享给任何第三方。</span></p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">🎨</div>
+        <h3><span class="en">Custom Personality</span><span class="zh">定制人格</span></h3>
+        <p><span class="en">Choose its name, personality, language, tone. Make it formal, playful, bilingual — whatever suits you.</span>
+        <span class="zh">自定义名字、性格、语言、语气。可以正式、可以活泼、可以双语——完全看你喜好。</span></p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">🔌</div>
+        <h3><span class="en">Extensible Skills</span><span class="zh">技能可扩展</span></h3>
+        <p><span class="en">Manage Shopify stores, check weather, browse the web, control smart home — and growing.</span>
+        <span class="zh">管理 Shopify 店铺、查天气、浏览网页、控制智能家居——技能持续增长中。</span></p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="how">
+  <div class="container">
+    <div class="section-label">
+      <span class="en">How It Works</span>
+      <span class="zh">如何开始</span>
+    </div>
+    <div class="section-title">
+      <span class="en">Up and running in 48 hours.</span>
+      <span class="zh">48小时内上线运行。</span>
+    </div>
+    <div class="steps">
+      <div class="step">
+        <div class="step-num">1</div>
+        <h3><span class="en">Tell Us About You</span><span class="zh">告诉我们你的需求</span></h3>
+        <p><span class="en">Quick call or chat. What do you need? What platforms do you use?</span>
+        <span class="zh">简单通话或聊天，了解你的需求和使用场景。</span></p>
+      </div>
+      <div class="step">
+        <div class="step-num">2</div>
+        <h3><span class="en">We Deploy</span><span class="zh">我们部署</span></h3>
+        <p><span class="en">We set up your server, connect your channels, and configure your AI.</span>
+        <span class="zh">搭建服务器、连接你的聊天通道、配置 AI 助理。</span></p>
+      </div>
+      <div class="step">
+        <div class="step-num">3</div>
+        <h3><span class="en">Meet Your Assistant</span><span class="zh">认识你的助理</span></h3>
+        <p><span class="en">Your AI introduces itself. You set the personality together. It's yours.</span>
+        <span class="zh">你的 AI 助理上线自我介绍，一起设定人格。从此它是你的。</span></p>
+      </div>
+      <div class="step">
+        <div class="step-num">4</div>
+        <h3><span class="en">Ongoing Support</span><span class="zh">持续支持</span></h3>
+        <p><span class="en">We handle updates, troubleshooting, and new features. You just use it.</span>
+        <span class="zh">更新、维护、新功能我们来，你只管用。</span></p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="pricing" id="pricing">
+  <div class="container">
+    <div class="section-label">
+      <span class="en">Pricing</span>
+      <span class="zh">定价</span>
+    </div>
+    <div class="section-title">
+      <span class="en">Simple, transparent pricing.</span>
+      <span class="zh">简单透明，没有隐藏费用。</span>
+    </div>
+    <div class="pricing-grid">
+
+      <div class="price-card">
+        <div class="price-tier">Starter</div>
+        <h3><span class="en">Essential</span><span class="zh">基础版</span></h3>
+        <p class="price-desc">
+          <span class="en">Perfect for personal use</span>
+          <span class="zh">个人使用的理想选择</span>
+        </p>
+        <div class="price-amount"><span class="eur">€</span>299</div>
+        <div class="price-period">
+          <span class="en">one-time setup</span>
+          <span class="zh">一次性部署费</span>
+        </div>
+        <ul class="price-features">
+          <li><span class="en">1 messaging channel (Telegram, WhatsApp, or Discord)</span><span class="zh">1个聊天通道（Telegram / WhatsApp / Discord）</span></li>
+          <li><span class="en">Basic personality setup</span><span class="zh">基础人格设定</span></li>
+          <li><span class="en">Memory & context system</span><span class="zh">记忆和上下文系统</span></li>
+          <li><span class="en">Web search & browsing</span><span class="zh">网页搜索和浏览</span></li>
+          <li><span class="en">30-day support included</span><span class="zh">含30天技术支持</span></li>
+        </ul>
+        <a href="#contact" class="btn-plan btn-plan-secondary">
+          <span class="en">Get Started</span>
+          <span class="zh">立即开始</span>
+        </a>
+      </div>
+
+      <div class="price-card featured">
+        <div class="price-tier">
+          <span class="en">★ Most Popular</span>
+          <span class="zh">★ 最受欢迎</span>
+        </div>
+        <h3><span class="en">Professional</span><span class="zh">专业版</span></h3>
+        <p class="price-desc">
+          <span class="en">For power users & small business</span>
+          <span class="zh">适合高级用户和小型企业</span>
+        </p>
+        <div class="price-amount"><span class="eur">€</span>599</div>
+        <div class="price-period">
+          <span class="en">one-time setup</span>
+          <span class="zh">一次性部署费</span>
+        </div>
+        <ul class="price-features">
+          <li><span class="en">Up to 3 messaging channels</span><span class="zh">最多3个聊天通道</span></li>
+          <li><span class="en">Custom personality & voice</span><span class="zh">深度定制人格和语气</span></li>
+          <li><span class="en">Email monitoring & briefings</span><span class="zh">邮件监控和早报推送</span></li>
+          <li><span class="en">Calendar integration</span><span class="zh">日历集成</span></li>
+          <li><span class="en">Custom skills (Shopify, smart home, etc.)</span><span class="zh">定制技能（Shopify、智能家居等）</span></li>
+          <li><span class="en">60-day support included</span><span class="zh">含60天技术支持</span></li>
+        </ul>
+        <a href="#contact" class="btn-plan btn-plan-primary">
+          <span class="en">Get Started</span>
+          <span class="zh">立即开始</span>
+        </a>
+      </div>
+
+      <div class="price-card">
+        <div class="price-tier">Add-on</div>
+        <h3><span class="en">Maintenance</span><span class="zh">持续维护</span></h3>
+        <p class="price-desc">
+          <span class="en">Keep it running smoothly</span>
+          <span class="zh">保持最佳运行状态</span>
+        </p>
+        <div class="price-amount"><span class="eur">€</span>49<span style="font-size:1rem;color:var(--text-secondary)">/mo</span></div>
+        <div class="price-period">
+          <span class="en">monthly</span>
+          <span class="zh">每月</span>
+        </div>
+        <ul class="price-features">
+          <li><span class="en">Software updates & upgrades</span><span class="zh">软件更新和升级</span></li>
+          <li><span class="en">Priority troubleshooting</span><span class="zh">优先故障排除</span></li>
+          <li><span class="en">New features as they launch</span><span class="zh">新功能第一时间上线</span></li>
+          <li><span class="en">Monthly check-in & optimization</span><span class="zh">每月检查和优化</span></li>
+        </ul>
+        <a href="#contact" class="btn-plan btn-plan-secondary">
+          <span class="en">Add to any plan</span>
+          <span class="zh">可搭配任意套餐</span>
+        </a>
+      </div>
+
+    </div>
+    <p style="text-align:center; color:var(--text-secondary); font-size:0.85rem; margin-top:24px;">
+      <span class="en">* AI model costs (e.g. Claude, GPT) are billed separately based on your usage.</span>
+      <span class="zh">* AI 模型费用（如 Claude、GPT）根据实际用量另计。</span>
+    </p>
+  </div>
+</section>
+
+<section class="demo" id="demo">
+  <div class="container">
+    <div class="demo-box">
+      <h2>
+        <span class="en">See what it's like</span>
+        <span class="zh">看看真实效果</span>
+      </h2>
+      <p>
+        <span class="en">This is a real conversation with an OpenClaw assistant.</span>
+        <span class="zh">以下是和 OpenClaw 助理的真实对话。</span>
+      </p>
+      <div class="chat-preview">
+        <div class="chat-msg user">
+          <div class="chat-bubble">
+            <span class="en">What's on my calendar tomorrow?</span>
+            <span class="zh">明天我有什么安排？</span>
+          </div>
+        </div>
+        <div class="chat-msg bot">
+          <div class="chat-bubble">
+            <span class="en">You have a dentist appointment at 10am and a lunch meeting with Sara at 12:30. Want me to remind you 30 min before each? ☺️</span>
+            <span class="zh">你明天上午10点看牙医，12:30和Sara午餐。需要我提前30分钟提醒你吗？☺️</span>
+          </div>
+        </div>
+        <div class="chat-msg user">
+          <div class="chat-bubble">
+            <span class="en">Yes please. Also check if I got any important emails today.</span>
+            <span class="zh">好的。顺便帮我看看今天有没有重要邮件。</span>
+          </div>
+        </div>
+        <div class="chat-msg bot">
+          <div class="chat-bubble">
+            <span class="en">Reminders set ✅ Checking email now... You have 3 unread. The important one: your accountant sent the Q1 tax documents. Want me to summarize them?</span>
+            <span class="zh">提醒已设好 ✅ 正在查邮件……3封未读，重要的一封：你的会计发来了Q1税务文件。要我帮你摘要吗？</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="pricing" id="contact" style="padding-bottom:100px;">
+  <div class="container">
+    <div class="demo-box">
+      <h2>
+        <span class="en">Ready to get started?</span>
+        <span class="zh">准备好了吗？</span>
+      </h2>
+      <p>
+        <span class="en">Send us a message. We'll get back to you within 24 hours.</span>
+        <span class="zh">给我们发消息，24小时内回复你。</span>
+      </p>
+      <div class="hero-buttons">
+        <a href="https://t.me/YOUR_TELEGRAM" class="btn-primary" target="_blank">
+          <span class="en">💬 Chat on Telegram</span>
+          <span class="zh">💬 Telegram 咨询</span>
+        </a>
+        <a href="mailto:hello@clawsetup.com" class="btn-secondary">
+          <span class="en">✉️ Email Us</span>
+          <span class="zh">✉️ 发邮件</span>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="container">
+    <p>
+      <span class="en">© 2026 ClawAI. Powered by <a href="https://github.com/openclaw/openclaw" target="_blank">OpenClaw</a>.</span>
+      <span class="zh">© 2026 ClawAI · 基于 <a href="https://github.com/openclaw/openclaw" target="_blank">OpenClaw</a> 开源项目</span>
+    </p>
+  </div>
+</footer>
+
+<script>
+let lang = navigator.language.startsWith('zh') ? 'zh' : 'en';
+document.documentElement.lang = lang;
+
+function toggleLang() {
+  lang = lang === 'en' ? 'zh' : 'en';
+  document.documentElement.lang = lang;
+}
+
+// Smooth scroll
+document.querySelectorAll('a[href^="#"]').forEach(a => {
+  a.addEventListener('click', e => {
+    e.preventDefault();
+    document.querySelector(a.getAttribute('href'))?.scrollIntoView({ behavior: 'smooth' });
+  });
+});
+</script>
+
+</body>
+</html>
