@@ -1,0 +1,54 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 240" width="800" height="240">
+  <defs>
+    <linearGradient id="shieldGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#A78BFA"/>
+      <stop offset="40%" style="stop-color:#8B5CF6"/>
+      <stop offset="100%" style="stop-color:#6D28D9"/>
+    </linearGradient>
+    <linearGradient id="innerGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#C4B5FD"/>
+      <stop offset="100%" style="stop-color:#7C3AED"/>
+    </linearGradient>
+    <linearGradient id="txtGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#A78BFA"/>
+      <stop offset="100%" style="stop-color:#7C3AED"/>
+    </linearGradient>
+    <clipPath id="shieldClip">
+      <path d="M 60 8 L 110 28 L 110 75 C 110 100 88 120 60 130 C 32 120 10 100 10 75 L 10 28 Z"/>
+    </clipPath>
+  </defs>
+  
+  <!-- Shield icon -->
+  <g transform="translate(30, 40)">
+    <!-- Shield outline -->
+    <path d="M 60 8 L 110 28 L 110 75 C 110 100 88 120 60 130 C 32 120 10 100 10 75 L 10 28 Z" 
+          fill="none" stroke="url(#shieldGrad)" stroke-width="3" opacity="0.9"/>
+    
+    <!-- Inner shield fill -->
+    <path d="M 60 16 L 104 33 L 104 75 C 104 96 84 114 60 123 C 36 114 16 96 16 75 L 16 33 Z" 
+          fill="url(#shieldGrad)" opacity="0.1"/>
+    
+    <!-- Claw marks inside shield -->
+    <g clip-path="url(#shieldClip)">
+      <path d="M 38 30 C 35 50 36 70 42 95" stroke="url(#innerGrad)" stroke-width="5.5" stroke-linecap="round" fill="none" opacity="0.7"/>
+      <path d="M 60 22 L 60 100" stroke="url(#innerGrad)" stroke-width="6.5" stroke-linecap="round" fill="none" opacity="0.9"/>
+      <path d="M 82 30 C 85 50 84 70 78 95" stroke="url(#innerGrad)" stroke-width="5.5" stroke-linecap="round" fill="none" opacity="0.7"/>
+    </g>
+    
+    <!-- Small dot accent -->
+    <circle cx="60" cy="60" r="4" fill="#E9D5FF" opacity="0.8"/>
+  </g>
+
+  <!-- Wordmark -->
+  <text x="185" y="118" font-family="'Inter', 'SF Pro Display', 'Helvetica Neue', sans-serif" font-size="76" letter-spacing="1">
+    <tspan fill="#EFEFEF" font-weight="300">Claw</tspan><tspan fill="url(#txtGrad)" font-weight="800">AI</tspan>
+  </text>
+  
+  <!-- Accent dot between name parts -->
+  <circle cx="185" cy="140" r="0" fill="url(#txtGrad)"/>
+  
+  <!-- Tagline with shield vibe -->
+  <text x="187" y="155" font-family="'Inter', 'SF Pro Display', sans-serif" font-size="13" font-weight="400" letter-spacing="6" fill="#777">
+    <span class="en">SECURE AI DEPLOYMENT</span>
+  </text>
+</svg>

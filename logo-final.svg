@@ -1,0 +1,50 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 200" width="720" height="200">
+  <defs>
+    <linearGradient id="clawGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#A78BFA"/>
+      <stop offset="100%" style="stop-color:#7C3AED"/>
+    </linearGradient>
+    <linearGradient id="textGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#8B5CF6"/>
+      <stop offset="100%" style="stop-color:#7C3AED"/>
+    </linearGradient>
+    <linearGradient id="glowGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#C4B5FD"/>
+      <stop offset="100%" style="stop-color:#8B5CF6"/>
+    </linearGradient>
+  </defs>
+  
+  <!-- Icon: Abstract mechanical claw / gripper -->
+  <g transform="translate(40, 28)">
+    <!-- Left prong -->
+    <path d="M 18 12 C 10 12, 2 24, 2 44 C 2 56, 6 66, 14 74" 
+          stroke="url(#clawGrad)" stroke-width="8" stroke-linecap="round" fill="none"/>
+    <!-- Center prong (tallest) -->
+    <path d="M 52 0 L 52 74" 
+          stroke="url(#glowGrad)" stroke-width="9" stroke-linecap="round" fill="none"/>
+    <!-- Right prong -->
+    <path d="M 86 12 C 94 12, 102 24, 102 44 C 102 56, 98 66, 90 74" 
+          stroke="url(#clawGrad)" stroke-width="8" stroke-linecap="round" fill="none"/>
+    
+    <!-- Bottom grip arc -->
+    <path d="M 14 74 Q 52 100 90 74" 
+          stroke="url(#clawGrad)" stroke-width="5" stroke-linecap="round" fill="none" opacity="0.4"/>
+    
+    <!-- Center energy dot -->
+    <circle cx="52" cy="46" r="6" fill="url(#glowGrad)" opacity="0.7"/>
+    <circle cx="52" cy="46" r="3" fill="#E0D4FF" opacity="0.9"/>
+  </g>
+
+  <!-- Wordmark -->
+  <text x="175" y="100" font-family="'Inter', 'SF Pro Display', 'Segoe UI', 'Helvetica Neue', sans-serif" font-size="72" letter-spacing="3">
+    <tspan fill="#E8E8E8" font-weight="300">claw</tspan><tspan fill="url(#textGrad)" font-weight="700">AI</tspan>
+  </text>
+  
+  <!-- Separator line -->
+  <line x1="175" y1="114" x2="520" y2="114" stroke="#333333" stroke-width="0.8"/>
+  
+  <!-- Tagline -->
+  <text x="175" y="138" font-family="'Inter', 'SF Pro Display', 'Segoe UI', sans-serif" font-size="14" font-weight="300" letter-spacing="7" fill="#777777">
+    YOUR AI, DEPLOYED
+  </text>
+</svg>

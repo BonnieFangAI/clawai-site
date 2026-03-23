@@ -1,0 +1,37 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 160" width="600" height="160">
+  <defs>
+    <linearGradient id="gA" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#A78BFA"/>
+      <stop offset="100%" style="stop-color:#7C3AED"/>
+    </linearGradient>
+    <linearGradient id="gB" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#8B5CF6"/>
+      <stop offset="100%" style="stop-color:#6366F1"/>
+    </linearGradient>
+  </defs>
+  
+  <!-- Abstract claw: bracket-like shape -->
+  <g transform="translate(25, 18)">
+    <!-- Three claw tips forming a bracket/pincer shape -->
+    <path d="M 30 8 C 20 8, 8 20, 8 40 C 8 48, 10 55, 14 60" stroke="url(#gA)" stroke-width="7" stroke-linecap="round" fill="none"/>
+    <path d="M 50 0 C 50 0, 50 35, 50 60" stroke="url(#gA)" stroke-width="8" stroke-linecap="round" fill="none"/>
+    <path d="M 70 8 C 80 8, 92 20, 92 40 C 92 48, 90 55, 86 60" stroke="url(#gA)" stroke-width="7" stroke-linecap="round" fill="none"/>
+    
+    <!-- Connection arc at bottom -->
+    <path d="M 14 60 Q 50 85 86 60" stroke="url(#gA)" stroke-width="5" stroke-linecap="round" fill="none" opacity="0.5"/>
+    
+    <!-- Dot/orb in center -->
+    <circle cx="50" cy="42" r="5" fill="url(#gA)" opacity="0.6"/>
+  </g>
+  
+  <!-- ClawAI Text - clean weight -->
+  <text x="145" y="75" font-family="'Inter', 'Segoe UI', 'Helvetica Neue', Arial, sans-serif" font-size="58" font-weight="300" letter-spacing="6">
+    <tspan fill="#EDEDED">claw</tspan><tspan fill="url(#gB)" font-weight="600">AI</tspan>
+  </text>
+  
+  <line x1="145" y1="85" x2="430" y2="85" stroke="#333" stroke-width="0.5"/>
+  
+  <text x="145" y="102" font-family="'Inter', 'Segoe UI', sans-serif" font-size="11" font-weight="300" letter-spacing="8" fill="#666666">
+    YOUR AI, DEPLOYED
+  </text>
+</svg>
